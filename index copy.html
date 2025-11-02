@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Hydroponics Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1 class="header-title">🌿 Smart Hydroponics</h1>
+        <p class="header-subtitle">Live sensor readings & manual relay control</p>
+      </header>
+
+      <section class="sensors-section">
+        <h2 class="section-title">Sensor Readings</h2>
+        <div class="sensors-grid">
+          <div class="sensor-card">
+            <div class="sensor-icon">🌡️</div>
+            <div class="sensor-label">Temperature</div>
+            <div class="sensor-value" id="temp-value">--</div>
+            <div class="sensor-unit">°C</div>
+          </div>
+
+          <div class="sensor-card">
+            <div class="sensor-icon">💧</div>
+            <div class="sensor-label">Humidity</div>
+            <div class="sensor-value" id="humidity-value">--</div>
+            <div class="sensor-unit">%</div>
+          </div>
+
+          <div class="sensor-card">
+            <div class="sensor-icon">⚡</div>
+            <div class="sensor-label">EC Level</div>
+            <div class="sensor-value" id="ec-value">--</div>
+            <div class="sensor-unit">mS/cm</div>
+          </div>
+
+          <div class="sensor-card">
+            <div class="sensor-icon">💡</div>
+            <div class="sensor-label">Light Intensity</div>
+            <div class="sensor-value" id="light-value">--</div>
+            <div class="sensor-unit">lux</div>
+          </div>
+
+          <div class="sensor-card">
+            <div class="sensor-icon">🧪</div>
+            <div class="sensor-label">TDS</div>
+            <div class="sensor-value" id="tds-value">--</div>
+            <div class="sensor-unit">ppm</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="charts-section">
+        <h2 class="section-title">Real-Time Monitoring</h2>
+        <div class="charts-grid">
+          <div class="chart-card">
+            <h3 class="chart-title">Temperature History</h3>
+            <canvas id="temp-chart"></canvas>
+          </div>
+          <div class="chart-card">
+            <h3 class="chart-title">Humidity History</h3>
+            <canvas id="humidity-chart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <section class="relays-section">
+        <h2 class="section-title">Manual Relay Control</h2>
+        <div class="relays-grid">
+          <button class="relay-btn" data-relay="Sprinklers">
+            <span class="relay-icon">💦</span>
+            <span class="relay-name">Sprinklers</span>
+            <span class="relay-status">OFF</span>
+          </button>
+
+          <button class="relay-btn" data-relay="ExhaustFan">
+            <span class="relay-icon">🌀</span>
+            <span class="relay-name">Exhaust Fan</span>
+            <span class="relay-status">OFF</span>
+          </button>
+
+          <button class="relay-btn" data-relay="WaterPump">
+            <span class="relay-icon">🚰</span>
+            <span class="relay-name">Water Pump</span>
+            <span class="relay-status">OFF</span>
+          </button>
+
+          <button class="relay-btn" data-relay="NutrientPump">
+            <span class="relay-icon">🧴</span>
+            <span class="relay-name">Nutrient Pump</span>
+            <span class="relay-status">OFF</span>
+          </button>
+
+          <button class="relay-btn" data-relay="LedLight">
+            <span class="relay-icon">💡</span>
+            <span class="relay-name">LED Light</span>
+            <span class="relay-status">OFF</span>
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
